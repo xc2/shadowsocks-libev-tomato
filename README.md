@@ -7,10 +7,10 @@ Thanks to [Travis CI](https://travis-ci.org) and Github, I managed to build and 
 ## What's done and what's not
 
 - [x] Mipsel version with merlin toolchain (may also work with other mipsel version ROM)
-- [] Mipsel version with shibby toolchain
-- [] ARM version with merlin toolchain
-- [] ARM version with shibby-AC toolchain
-- [] Release checksum files simultaneously
+- [ ] Mipsel version with shibby toolchain
+- [ ] ARM version with merlin toolchain
+- [ ] ARM version with shibby-AC toolchain
+- [ ] Release checksum files simultaneously
 
 As toolchains from merlin may be same with the ones from shibby, follow the arch first when choose which binary to download.
 
