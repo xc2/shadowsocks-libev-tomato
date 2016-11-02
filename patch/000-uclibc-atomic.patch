@@ -1,0 +1,49 @@
+diff --git a/libcork/include/libcork/threads/atomics.h b/libcork/include/libcork/threads/atomics.h
+index d1f139b..5436bbf 100644
+--- a/libcork/include/libcork/threads/atomics.h
++++ b/libcork/include/libcork/threads/atomics.h
+@@ -13,6 +13,7 @@
+
+ #include <libcork/config.h>
+ #include <libcork/core/types.h>
++#include <libcork/threads/uclibc-atomic.h>
+
+ /*-----------------------------------------------------------------------
+  * GCC intrinsics
+diff --git a/libcork/include/libcork/threads/uclibc-atomic.h b/libcork/include/libcork/threads/uclibc-atomic.h
+new file mode 100644
+index 0000000..a892366
+--- /dev/null
++++ b/libcork/include/libcork/threads/uclibc-atomic.h
+@@ -0,0 +1,31 @@
++#ifdef __UCLIBC__
++#ifndef UCLIBC_ATOMIC_H
++#define UCLIBC_ATOMIC_H
++#include <atomic.h>
++
++#ifndef __sync_add_and_fetch
++#define __sync_add_and_fetch(mem, value) \
++(atomic_exchange_and_add ((mem), value) + value)
++#endif
++
++#ifndef __sync_fetch_and_add
++#define __sync_fetch_and_add atomic_exchange_and_add
++#endif
++
++#ifndef __sync_sub_and_fetch
++#define __sync_sub_and_fetch(mem, value) \
++(atomic_exchange_and_add ((mem), 0 - value) - value)
++#endif
++
++#ifndef __sync_fetch_and_sub
++#define __sync_fetch_and_sub(mem, value) \
++atomic_exchange_and_add ((mem), 0 - value)
++#endif
++
++#ifndef __sync_val_compare_and_swap
++#define __sync_val_compare_and_swap(mem, oldval, newval) \
++atomic_compare_and_exchange_val_acq (mem, newval, oldval)
++#endif
++
++#endif /* UCBLIC_ATOMIC_H */
++#endif /* __UCLIBC__ */

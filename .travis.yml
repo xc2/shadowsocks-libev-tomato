@@ -1,75 +1,70 @@
 sudo: false
 env:
-- TOOLCHAIN_FROM: merlin
-- MERLIN_VERSION: 380.62_1
-- TOOLCHAIN: mipsel-linux-uclibc
-- SHADOWSOCKS_LIBEV_VERSION: 2.5.5
-- CRYPTO_LIBRARY: openssl-1.0.1u
-- CRYPTO_LIBRARY: polarssl-1.2.19-gpl
-- CRYPTO_LIBRARY: mbedtls-2.3.0-gpl
-- TARBALLS_DIR_TO_HOME: tarballs
+  - TOOLCHAIN: merlin
+  - MERLIN_VERSION: 380.62_1
+  - SHADOWSOCKS_LIBEV_VERSION: 2.5.6
+  - CRYPTO_LIBRARY: openssl
+  - OPENSSL_VERSION: 1.0.1u
+  - CRYPTO_LIBRARY: polarssl
+  - POLARSSL_VERSION: 1.2.19-gpl
+  - CRYPTO_LIBRARY: mbedtls
+  - MBEDTLS_VERSION: 2.3.0-gpl
 cache:
   directories:
-  - $HOME/$TARBALLS_DIR_TO_HOME
+    - $HOME/CACHE
+script: make install TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION} CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION} MBEDTLS_VERSION=${MBEDTLS_VERSION}
 addons:
   apt:
     packages:
-    - autoconf
-    - automake
-    - bash
-    - bison
-    - bzip2
-    - diffutils
-    - file
-    - flex
-    - m4
-    - g++
-    - gawk
-    - groff-base
-    - libncurses-dev
-    - libtool
-    - libslang2
-    - make
-    - patch
-    - perl
-    - pkg-config
-    - shtool
-    - subversion
-    - tar
-    - texinfo
-    - zlib1g
-    - zlib1g-dev
-    - git-core
-    - gettext
-    - libexpat1-dev
-    - libssl-dev
-    - cvs
-    - gperf
-    - unzip
-    - python
-    - libxml-parser-perl
-    - gcc-multilib
-    - gconf-editor
-    - libxml2-dev
-    - g++-4.4
-    - g++-multilib
-    - gitk
-    - libncurses5
-    - mtd-utils
-    - libncurses5-dev
-    - libstdc++6-4.4-dev
-    - libvorbis-dev
-    - g++-4.4-multilib
-    - git
-    - autopoint
-    - autogen
-    - sed
-    - build-essential
-    - intltool
-    - libelf1:i386
-    - libglib2.0-dev
-    - lib32z1-dev
-    - lib32stdc++6
-    - asciidoc
-    - xmlto
-    - wget
+      - autoconf
+      - automake
+      - bison
+      - bzip2
+      - diffutils
+      - flex
+      - m4
+      - build-essential
+      - gawk
+      - groff-base
+      - libncurses-dev
+      - libtool
+      - libslang2
+      - make
+      - patch
+      - perl
+      - pkg-config
+      - shtool
+      - texinfo
+      - zlib1g
+      - zlib1g-dev
+      - git-core
+      - gettext
+      - libexpat1-dev
+      - libssl-dev
+      - cvs
+      - gperf
+      - unzip
+      - python
+      - libxml-parser-perl
+      - gcc-multilib
+      - libxml2-dev
+      - g++-4.4
+      - g++-multilib
+      - gitk
+      - libncurses5
+      - mtd-utils
+      - libncurses5-dev
+      - libstdc++6-4.4-dev
+      - libvorbis-dev
+      - g++-4.4-multilib
+      - autopoint
+      - autogen
+      - sed
+      - intltool
+      - libelf1:i386
+      - libglib2.0-dev
+      - lib32z1-dev
+      - lib32stdc++6
+      - asciidoc
+      - xmlto
+      - wget
