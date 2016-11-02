@@ -1,7 +1,7 @@
 # -*- mode: makefile -*-
 MERLIN_VERSION := 380.62_1
 MERLIN_TARBALL = $(CACHEROOT)/merlin-$(MERLIN_VERSION).tar.gz
-TOOLCHAIN_INSTALL = $(CACHEROOT)/toolchain-merlin-$(MERLIN_VERSION)
+TOOLCHAIN_INSTALL = $(CACHEROOT)/toolchain-merlin-mipsel-uclibc-4.2.4
 CC = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-gcc
 CXX = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-g++
 LD = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-ld
