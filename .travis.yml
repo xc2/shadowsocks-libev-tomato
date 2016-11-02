@@ -17,7 +17,7 @@ cache:
 script: make install TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION}
   CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION}
   MBEDTLS_VERSION=${MBEDTLS_VERSION}
-after_success: cd $HOME && tar zcvf "shadowsocks-libev-${SHADOWSOCKS_LIBEV_VERSION}-${TOOLCHAIN}-{CRYPTO_LIBRARY}.tar.gz" shadowsocks-libev
+before_deploy: cd $HOME && tar zcvf "shadowsocks-libev-${SHADOWSOCKS_LIBEV_VERSION}-${TOOLCHAIN}-{CRYPTO_LIBRARY}.tar.gz" shadowsocks-libev && ls
 deploy:
   provider: releases
   api_key:
