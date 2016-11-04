@@ -16,7 +16,7 @@ index 0000000..a892366
 --- /dev/null
 +++ b/libcork/include/libcork/threads/uclibc-atomic.h
 @@ -0,0 +1,31 @@
-+#ifdef __UCLIBC__
++#if defined(__UCLIBC__) && !defined(__SIG_ATOMIC_TYPE__)
 +#ifndef UCLIBC_ATOMIC_H
 +#define UCLIBC_ATOMIC_H
 +#include <atomic.h>
