@@ -19,7 +19,7 @@ cache:
   - "$HOME/CACHE"
 before_install: openssl aes-256-cbc -K $encrypted_29ccbcd35949_key -iv $encrypted_29ccbcd35949_iv -in .priv/F84FC08D.key.enc -out .priv/F84FC08D.key -d
 script: make package TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION} CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION} MBEDTLS_VERSION=${MBEDTLS_VERSION}
-after_script: rm -f .priv/*.key
+after_script: rm -f .priv/*.key && rm -rf /tmp/*
 deploy:
   provider: releases
   api_key:
