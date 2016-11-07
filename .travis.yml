@@ -17,9 +17,9 @@ env:
 cache:
   directories:
   - "$HOME/CACHE"
-script: make package TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION}
-  CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION}
-  MBEDTLS_VERSION=${MBEDTLS_VERSION}
+before_install: openssl aes-256-cbc -K $encrypted_29ccbcd35949_key -iv $encrypted_29ccbcd35949_iv -in .priv/6E859979.key.enc -out .priv/6E859979.key -d
+script: make package TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION} CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION} MBEDTLS_VERSION=${MBEDTLS_VERSION}
+after_script: rm -f .priv/*.key
 deploy:
   provider: releases
   api_key:
@@ -27,6 +27,7 @@ deploy:
   file:
   - "${HOME}/shadowsocks-libev-${SHADOWSOCKS_LIBEV_VERSION}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.tar.gz"
   - "${HOME}/shadowsocks-libev-${SHADOWSOCKS_LIBEV_VERSION}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.sha256sum"
+  - "${HOME}/shadowsocks-libev-${SHADOWSOCKS_LIBEV_VERSION}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.sha256sum.sig"
   skip_cleanup: true
   on:
     tags: true
@@ -75,3 +76,4 @@ addons:
     - lib32z1-dev
     - lib32stdc++6
     - wget
+    - gnupg
