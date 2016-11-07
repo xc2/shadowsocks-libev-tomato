@@ -76,4 +76,4 @@ addons:
     - lib32z1-dev
     - lib32stdc++6
     - wget
-    - gnupg
+    - gnupg2
