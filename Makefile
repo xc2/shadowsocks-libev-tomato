@@ -61,7 +61,7 @@ mv "$(SHADOWSOCKS_LIBEV_CHECKSUM).progress" "$(SHADOWSOCKS_LIBEV_CHECKSUM)" \
 $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG): $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	mkdir -p "$(GNUPGHOME)"
 	chmod 700 "$(GNUPGHOME)"
-	$(GPG) --fast-import ./.priv/F84FC08D.key
+	$(GPG) --batch -v --no --import ./.priv/F84FC08D.key
 	$(GPG) --default-key F84FC08D -a --textmode -o $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG) --sign $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	(cd "$(TMPDIR)" && rm -rf gnupg.*)
 
