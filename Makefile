@@ -61,8 +61,8 @@ mv "$(SHADOWSOCKS_LIBEV_CHECKSUM).progress" "$(SHADOWSOCKS_LIBEV_CHECKSUM)" \
 $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG): $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	mkdir -p "$(GNUPGHOME)"
 	chmod 700 "$(GNUPGHOME)"
-	$(GPG) --import ./.priv/6E859979.key
-	$(GPG) --default-key 6E859979 -a --textmode -o $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG) --sign $(SHADOWSOCKS_LIBEV_CHECKSUM)
+	$(GPG) --import ./.priv/F84FC08D.key
+	$(GPG) --default-key F84FC08D -a --textmode -o $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG) --sign $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	(cd "$(TMPDIR)" && rm -rf gnupg.*)
 
 .PHONY: package compile
