@@ -63,6 +63,7 @@ $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG): $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	chmod 700 "$(GNUPGHOME)"
 	$(GPG) --import ./.priv/F84FC08D.key
 	$(GPG) --default-key F84FC08D -a --textmode -o $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG) --sign $(SHADOWSOCKS_LIBEV_CHECKSUM)
+	cat "$(SHADOWSOCKS_LIBEV_CHECKSUM_SIG)"
 	(cd "$(TMPDIR)" && rm -rf gnupg.*)
 
 .PHONY: package compile

@@ -14,15 +14,15 @@ You can get the prebuilt binaries from [Release](https://github.com/xc2/shadowso
 
 Release checksums will be signed with GPG key:
 
-- xcxc2 (Travis Only) <xc2@fastmail.com> [http://pgp.mit.edu/pks/lookup?op=get&search=0x952A6EC2F84FC08D](952A6EC2F84FC08D)
+- xcxc2 (Travis Only) <<xc2@fastmail.com>> [952A6EC2F84FC08D](http://pgp.mit.edu/pks/lookup?op=get&search=0x952A6EC2F84FC08D)
 
 Tags of this repository will be signed with GPG key:
 
-- xcxc2 <xc2@fastmail.com> [http://pgp.mit.edu/pks/lookup?op=get&search=0x88FDE272AB3188D8](88FDE272AB3188D8)
+- xcxc2 <<xc2@fastmail.com>> [88FDE272AB3188D8](http://pgp.mit.edu/pks/lookup?op=get&search=0x88FDE272AB3188D8)
 
 You can import these keys via:
 
 ```shell
-gpg --keyserver pgp.mit.edu --recv-keys 88FDE272AB3188D8
 gpg --keyserver pgp.mit.edu --recv-keys 952A6EC2F84FC08D
+gpg --keyserver pgp.mit.edu --recv-keys 88FDE272AB3188D8
 ```
