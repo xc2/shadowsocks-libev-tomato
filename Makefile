@@ -3,7 +3,7 @@ CACHEROOT := $(HOME)/CACHE
 TMPDIR := $(shell dirname $(shell mktemp -u))
 NPROCS := $(shell nproc)
 GNUPGHOME := $(shell mktemp --tmpdir -u -d gnupg.XXXXXXXXX)
-GPG := GNUPGHOME=$(GNUPGHOME) gpg
+GPG := GNUPGHOME=$(GNUPGHOME) gpg --batch --no -v
 
 include toolchain.mk
 include libz.mk
@@ -61,7 +61,7 @@ mv "$(SHADOWSOCKS_LIBEV_CHECKSUM).progress" "$(SHADOWSOCKS_LIBEV_CHECKSUM)" \
 $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG): $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	mkdir -p "$(GNUPGHOME)"
 	chmod 700 "$(GNUPGHOME)"
-	$(GPG) --batch -v --no --import ./.priv/F84FC08D.key
+	$(GPG) --import ./.priv/F84FC08D.key
 	$(GPG) --default-key F84FC08D -a --textmode -o $(SHADOWSOCKS_LIBEV_CHECKSUM_SIG) --sign $(SHADOWSOCKS_LIBEV_CHECKSUM)
 	(cd "$(TMPDIR)" && rm -rf gnupg.*)
 
