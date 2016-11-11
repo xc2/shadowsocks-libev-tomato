@@ -31,7 +31,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-  body: "Shadowsocks-libev version: ${SHADOWSOCKS_LIBEV_VERSION}; Build log: [${TRAVIS_BUILD_NUMBER}](https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID})"
+  body: "- Shadowsocks-libev: ${SHADOWSOCKS_LIBEV_VERSION}\n- OpenSSL: ${OPENSSL_VERSION}\n- mbed TLS: ${MBEDTLS_VERSION}\n- PolarSSL: ${POLARSSL_VERSION}\n- Build: [#${TRAVIS_BUILD_NUMBER}](https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID})"
 addons:
   apt:
     packages:
