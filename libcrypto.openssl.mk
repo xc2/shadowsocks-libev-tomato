@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-OPENSSL_VERSION := 1.0.1u
+OPENSSL_VERSION := 1.0.2j
 OPENSSL_TARBALL = $(CACHEROOT)/openssl-$(OPENSSL_VERSION).tar.gz
 OPENSSL_INSTALL = $(CACHEROOT)/openssl-$(OPENSSL_VERSION)-$(TOOLCHAIN)
 OPENSSL_SOURCE_DIR := $(shell mktemp -d -u --tmpdir openssl.XXXXXXXXXX)
