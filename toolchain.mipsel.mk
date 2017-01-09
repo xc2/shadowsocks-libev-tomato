@@ -11,7 +11,7 @@ LDFLAGS = "-L$(TOOLCHAIN_INSTALL)/usr/lib -L$(TOOLCHAIN_INSTALL)/lib -Wl,-rpath=
 CPPFLAGS = -I$(TOOLCHAIN_INSTALL)/include
 ARCH = mips
 MIPS_ARCH := mips32
-CFLAGS = "-Wno-errors -Os -march=$(MIPS_ARCH)"
+CFLAGS = "-Wno-error -Os -march=$(MIPS_ARCH)"
 HOST_COMPILER = mipsel-linux
 
 $(TOOLCHAIN_INSTALL): $(MERLIN_TARBALL)
