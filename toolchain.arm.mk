@@ -11,7 +11,7 @@ LDFLAGS = "-L$(TOOLCHAIN_INSTALL)/usr/lib -L$(TOOLCHAIN_INSTALL)/lib -Wl,-rpath=
 CPPFLAGS = -I$(TOOLCHAIN_INSTALL)/include
 ARCH = arm
 ARM_ARCH := armv7-a
-CFLAGS = "-Os -mthumb -marm -march=$(ARM_ARCH)"
+CFLAGS = "-Wno-error -Os -mthumb -marm -march=$(ARM_ARCH)"
 HOST_COMPILER = arm-brcm-linux-uclibcgnueabi
 LD_LIBRARY_PATH = $(TOOLCHAIN_INSTALL)/lib
 
