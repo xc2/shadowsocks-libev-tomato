@@ -10,7 +10,7 @@ include libz.mk
 include libpcre.mk
 include libcrypto.mk
 
-SHADOWSOCKS_LIBEV_VERSION := 2.6.0
+SHADOWSOCKS_LIBEV_VERSION := 2.6.1
 SHADOWSOCKS_LIBEV_TARBALL = $(CACHEROOT)/shadowsocks-libev-$(SHADOWSOCKS_LIBEV_VERSION).tar.gz
 SHADOWSOCKS_LIBEV_SOURCE := $(shell mktemp -u -d --tmpdir shadowsocks-libev.XXXXXXXXXX)
 SHADOWSOCKS_LIBEV_PATCHES := $(wildcard $(PWD)/patch/*.patch)
