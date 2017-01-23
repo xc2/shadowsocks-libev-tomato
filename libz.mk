@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-ZLIB_VERSION := 1.2.10
+ZLIB_VERSION := 1.2.11
 ZLIB_TARBALL = $(CACHEROOT)/zlib-$(ZLIB_VERSION).tar.gz
 ZLIB_INSTALL = $(CACHEROOT)/zlib-$(ZLIB_VERSION)-$(TOOLCHAIN)
 ZLIB_SOURCE_DIR := $(shell mktemp -d -u --tmpdir zlib.XXXXXXXXX)
