@@ -17,9 +17,9 @@ deploy:
   api_key:
     secure: hTyjtsmGS48PQ5hXM6qe3J8pLsndgMiOZn4LDyJE+ZJItJk2mhG/zPwDFu5QiqGk7Mi4GjXMMEIRfaczbEn+CYGdiBYIV7YXjjWKuzdX2/xiGBi0+EjEMlLqzkO+Xr7ova9/S6QNR7PeyrYVj5XNORhkk2evtfgBK7UgoYzOt+g2aqu32qF0Eq7/KjOWKn0b89aq05GA9pICO+5LhvPmYNvaWRumXLzVEbDZ/Ey27iNFMtUCx2YIXRc3iBKL2bcYbA9yuYD1e39PMCGhoLzDpSJ6yW0dm64uweooz7ziqp60TPs45X+RnpN29/cRO/3yEh05Qu7pkj9TqIsI+fP6lQXypMQ3KS6cdmlV0e23g7xlFVkcfGbTXR4nbXvsV06aO4gEHvAN7bl8710kPZubShj939STvoXN83/AdUF/k6GL6X2FgozdQevjDn+mM744897naKS76KRF7SxsRkKIWOO4Xaomf3A9RwZ5B2iqxHKtqCxbazRW0Tl8ZLs534lZVDHz75EMBZqDoawuqhGwKBEbfbVwBY5ogsgTTajgT5RXd42jTO8IG+0P14NF7gdQ1TAf7InUoqkiLXY5OXtWJB6TLDmX80rfxjxNHzkt/t9BgYur9QrhHgHZTlRT/rDIXjldXgQVMXQwmuVNbyR563q2qVE1wBCpR+rZ1Fa5bnQ=
   file:
-  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.tar.gz"
-  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.sha256sum"
-  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}-${CRYPTO_LIBRARY}.sha256sum.sig"
+  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}.tar.gz"
+  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}.sha256sum"
+  - "${HOME}/shadowsocks-libev-${TRAVIS_TAG}-${TOOLCHAIN}.sha256sum.sig"
   skip_cleanup: true
   on:
     tags: true
