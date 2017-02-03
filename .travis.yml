@@ -2,23 +2,15 @@ sudo: false
 language: c
 env:
   global:
-  - MERLIN_VERSION=380.62_1
-  - OPENSSL_VERSION=1.0.2j
-  - POLARSSL_VERSION=1.2.19-gpl
-  - MBEDTLS_VERSION=2.4.0-gpl
-  - SHADOWSOCKS_LIBEV_VERSION=2.6.2
+  - SHADOWSOCKS_LIBEV_VERSION=3.0.0
   matrix:
-  - CRYPTO_LIBRARY=openssl TOOLCHAIN=mipsel
-  - CRYPTO_LIBRARY=polarssl TOOLCHAIN=mipsel
-  - CRYPTO_LIBRARY=mbedtls TOOLCHAIN=mipsel
-  - CRYPTO_LIBRARY=openssl TOOLCHAIN=arm
-  - CRYPTO_LIBRARY=polarssl TOOLCHAIN=arm
-  - CRYPTO_LIBRARY=mbedtls TOOLCHAIN=arm
+  - TOOLCHAIN=mipsel
+  - TOOLCHAIN=arm
 cache:
   directories:
   - "$HOME/CACHE"
 before_install: openssl aes-256-cbc -K $encrypted_29ccbcd35949_key -iv $encrypted_29ccbcd35949_iv -in .priv/F84FC08D.key.enc -out .priv/F84FC08D.key -d
-script: make package TOOLCHAIN=${TOOLCHAIN} MERLIN_VERSION=${MERLIN_VERSION} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION} CRYPTO_LIBRARY=${CRYPTO_LIBRARY} OPENSSL_VERSION=${OPENSSL_VERSION} POLARSSL_VERSION=${POLARSSL_VERSION} MBEDTLS_VERSION=${MBEDTLS_VERSION} SHADOWSOCKS_LIBEV_RELEASE_VERSION=${TRAVIS_TAG:-"${SHADOWSOCKS_LIBEV_VERSION}-${TRAVIS_COMMIT:0:8}"}
+script: make package TOOLCHAIN=${TOOLCHAIN} SHADOWSOCKS_LIBEV_VERSION=${SHADOWSOCKS_LIBEV_VERSION} SHADOWSOCKS_LIBEV_RELEASE_VERSION=${TRAVIS_TAG:-"${SHADOWSOCKS_LIBEV_VERSION}-${TRAVIS_COMMIT:0:8}"}
 after_script: rm -f .priv/*.key && rm -rf /tmp/*
 deploy:
   provider: releases
@@ -33,9 +25,6 @@ deploy:
     tags: true
   body: |+
     - Shadowsocks-libev: ${SHADOWSOCKS_LIBEV_VERSION}
-    - OpenSSL: ${OPENSSL_VERSION}
-    - mbed TLS: ${MBEDTLS_VERSION}
-    - PolarSSL: ${POLARSSL_VERSION}
     - Build: [#${TRAVIS_BUILD_NUMBER}](https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID})"
 
 addons:
