@@ -12,10 +12,6 @@ You'll not be told how to run these programs, and related issues will be closed 
 
 You can download these binaries from [Release](https://github.com/xc2/shadowsocks-libev-tomato/releases) page of this repository.
 
-Checksums of tarballs and binaries will be signed with GPG key:
-
-- xcxc2 (Travis Only) <<xc2@fastmail.com>> [952A6EC2F84FC08D](http://pgp.mit.edu/pks/lookup?op=get&search=0x952A6EC2F84FC08D)
-
 Git tags will be signed with GPG key:
 
 - xcxc2 <<xc2@fastmail.com>> [88FDE272AB3188D8](http://pgp.mit.edu/pks/lookup?op=get&search=0x88FDE272AB3188D8)
@@ -23,11 +19,11 @@ Git tags will be signed with GPG key:
 You can import these keys via:
 
 ```shell
-gpg --keyserver pgp.mit.edu --recv-keys 952A6EC2F84FC08D 88FDE272AB3188D8
+gpg --keyserver pgp.mit.edu --recv-keys 88FDE272AB3188D8
 ```
 
-From release 2.5.6-2, GPG signatures were included.
+Since release 2.5.6-2, GPG signatures were included, and you will also find content of these signatures in build log at Travis-CI.
 
-After release 2.5.6-2, you will also find content of these signatures in build log at Travis-CI.
+Since release 3.0.1-1, checksum files and GPG signatures are excluded from release file list, thus the **ONLY** checksum list you could find is the one in the travis build log.
 
-Just make sure that all the files are released by Travis-CI, but not by neithor me nor any third party.
+**Just make sure that all the files are released by Travis-CI, but not by neithor me nor any third party.**
