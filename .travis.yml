@@ -2,7 +2,7 @@ sudo: false
 language: c
 env:
   global:
-  - SHADOWSOCKS_LIBEV_VERSION=3.0.1
+  - SHADOWSOCKS_LIBEV_VERSION=3.0.2
   matrix:
   - TOOLCHAIN=mipsel
   - TOOLCHAIN=arm
@@ -23,6 +23,7 @@ deploy:
   body: |+
     - Shadowsocks-libev: ${SHADOWSOCKS_LIBEV_VERSION}
     - Build: [#${TRAVIS_BUILD_NUMBER}](https://travis-ci.org/${TRAVIS_REPO_SLUG}/builds/${TRAVIS_BUILD_ID})"
+    - NOTICE: Checksum list is in the build log.
 
 addons:
   apt:
