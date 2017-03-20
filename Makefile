@@ -10,7 +10,7 @@ include libsodium.mk
 include libudns.mk
 include libev.mk
 
-SHADOWSOCKS_LIBEV_VERSION := 3.0.2
+SHADOWSOCKS_LIBEV_VERSION := 3.0.4
 SHADOWSOCKS_LIBEV_GIT_REPOSITORY = $(CACHEROOT)/shadowsocks-libev
 SHADOWSOCKS_LIBEV_SOURCE := $(shell mktemp -u -d --tmpdir shadowsocks-libev.XXXXXXXXXX)
 SHADOWSOCKS_LIBEV_PATCHES := $(wildcard $(PWD)/patch/*.patch)
@@ -30,7 +30,7 @@ $(SHADOWSOCKS_LIBEV_GIT_REPOSITORY):
 	mv "$(SHADOWSOCKS_LIBEV_GIT_REPOSITORY).progress" "$(SHADOWSOCKS_LIBEV_GIT_REPOSITORY)"
 
 $(SHADOWSOCKS_LIBEV_SOURCE): $(SHADOWSOCKS_LIBEV_GIT_REPOSITORY)
-	cd "$(SHADOWSOCKS_LIBEV_GIT_REPOSITORY)" && git reset --hard HEAD && git submodule foreach git reset --hard HEAD && git fetch origin && git checkout "v$(SHADOWSOCKS_LIBEV_VERSION)" && git submodule update
+	cd "$(SHADOWSOCKS_LIBEV_GIT_REPOSITORY)" && git reset --hard HEAD && git submodule foreach git reset --hard HEAD && git fetch origin && git checkout "v$(SHADOWSOCKS_LIBEV_VERSION)" && git submodule update --init
 	mkdir -p "$(SHADOWSOCKS_LIBEV_SOURCE)" && rsync -a --delete --delete-after --exclude=".git" "$(SHADOWSOCKS_LIBEV_GIT_REPOSITORY)/" "$(SHADOWSOCKS_LIBEV_SOURCE)/"
 
 $(SHADOWSOCKS_LIBEV_INSTALL): $(SHADOWSOCKS_LIBEV_TARBALL) $(TOOLCHAIN_INSTALL) $(LIBCRYPTO_INSTALL) $(PCRE_INSTALL) $(SODIUM_INSTALL) $(UDNS_INSTALL) $(LIBEV_INSTALL) $(SHADOWSOCKS_LIBEV_SOURCE)
