@@ -1,7 +1,7 @@
 # -*- mode: makefile -*-
 SODIUM_VERSION := 1.0.11
-SODIUM_TARBALL = $(CACHEROOT)/libsodium-$(SODIUM_VERSION).tar.gz
-SODIUM_INSTALL = $(CACHEROOT)/libsodium-$(SODIUM_VERSION)-$(TOOLCHAIN)
+SODIUM_TARBALL = $(DEPSROOT)/libsodium-$(SODIUM_VERSION).tar.gz
+SODIUM_INSTALL = $(DEPSROOT)/libsodium-$(SODIUM_VERSION)-$(TOOLCHAIN)
 SODIUM_SOURCE_DIR := $(shell mktemp -d -u --tmpdir libsodium.XXXXXXXXX)
 
 $(SODIUM_TARBALL):

@@ -1,7 +1,7 @@
 # -*- mode: makefile -*-
 UDNS_VERSION := 0.4
-UDNS_TARBALL = $(CACHEROOT)/libudns-$(UDNS_VERSION).tar.gz
-UDNS_INSTALL = $(CACHEROOT)/libudns-$(UDNS_VERSION)-$(TOOLCHAIN)
+UDNS_TARBALL = $(DEPSROOT)/libudns-$(UDNS_VERSION).tar.gz
+UDNS_INSTALL = $(DEPSROOT)/libudns-$(UDNS_VERSION)-$(TOOLCHAIN)
 UDNS_SOURCE_DIR := $(shell mktemp -d -u --tmpdir libudns.XXXXXXXXX)
 LIBUDNS_LDFLAGS = "-L$(UDNS_INSTALL)/lib"
 LIBUDNS_CPPFLAGS = "-I$(UDNS_INSTALL)/include"

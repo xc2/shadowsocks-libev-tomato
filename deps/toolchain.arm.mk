@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-TOOLCHAIN_INSTALL = $(CACHEROOT)/hndtools-arm-linux-2.6.36-uclibc-4.5.3
+TOOLCHAIN_INSTALL = $(DEPSROOT)/hndtools-arm-linux-2.6.36-uclibc-4.5.3
 CC = $(TOOLCHAIN_INSTALL)/bin/arm-brcm-linux-uclibcgnueabi-gcc
 CXX = $(TOOLCHAIN_INSTALL)/bin/arm-brcm-linux-uclibcgnueabi-g++
 LD = $(TOOLCHAIN_INSTALL)/bin/arm-brcm-linux-uclibcgnueabi-ld

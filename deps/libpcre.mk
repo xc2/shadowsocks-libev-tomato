@@ -1,7 +1,7 @@
 # -*- mode: makefile -*-
 PCRE_VERSION := 8.39
-PCRE_TARBALL = $(CACHEROOT)/pcre-$(PCRE_VERSION).tar.gz
-PCRE_INSTALL = $(CACHEROOT)/pcre-$(PCRE_VERSION)-$(TOOLCHAIN)
+PCRE_TARBALL = $(DEPSROOT)/pcre-$(PCRE_VERSION).tar.gz
+PCRE_INSTALL = $(DEPSROOT)/pcre-$(PCRE_VERSION)-$(TOOLCHAIN)
 PCRE_SOURCE_DIR := $(shell mktemp -d -u --tmpdir pcre.XXXXXXXXXX)
 
 $(PCRE_TARBALL):

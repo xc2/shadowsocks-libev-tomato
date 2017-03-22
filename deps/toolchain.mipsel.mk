@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-TOOLCHAIN_INSTALL = $(CACHEROOT)/hndtools-mipsel-uclibc-4.2.4
+TOOLCHAIN_INSTALL = $(DEPSROOT)/hndtools-mipsel-uclibc-4.2.4
 CC = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-gcc
 CXX = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-g++
 LD = $(TOOLCHAIN_INSTALL)/bin/mipsel-linux-ld
