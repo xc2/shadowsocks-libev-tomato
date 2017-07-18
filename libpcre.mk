@@ -1,11 +1,11 @@
 # -*- mode: makefile -*-
-PCRE_VERSION := 8.39
+PCRE_VERSION := 8.41
 PCRE_TARBALL = $(CACHEROOT)/pcre-$(PCRE_VERSION).tar.gz
 PCRE_INSTALL = $(CACHEROOT)/pcre-$(PCRE_VERSION)-$(TOOLCHAIN)
 PCRE_SOURCE_DIR := $(shell mktemp -d -u --tmpdir pcre.XXXXXXXXXX)
 
 $(PCRE_TARBALL):
-	wget --continue -O "$(PCRE_TARBALL).wget" "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$(PCRE_VERSION).tar.gz"
+	wget --continue -O "$(PCRE_TARBALL).wget" "https://ftp.pcre.org/pub/pcre/pcre-$(PCRE_VERSION).tar.gz"
 	mv "$(PCRE_TARBALL).wget" "$(PCRE_TARBALL)"
 
 $(PCRE_INSTALL): $(PCRE_TARBALL) $(TOOLCHAIN_INSTALL)
