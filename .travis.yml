@@ -2,7 +2,7 @@ sudo: false
 language: c
 env:
   global:
-  - SHADOWSOCKS_LIBEV_VERSION=3.0.7
+  - SHADOWSOCKS_LIBEV_VERSION=3.0.8
   matrix:
   - TOOLCHAIN=mipsel
   - TOOLCHAIN=arm
