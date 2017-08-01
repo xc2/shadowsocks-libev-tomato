@@ -10,7 +10,7 @@ include libsodium.mk
 include libudns.mk
 include libev.mk
 
-SHADOWSOCKS_LIBEV_VERSION := 3.0.7
+SHADOWSOCKS_LIBEV_VERSION := 3.0.8
 SHADOWSOCKS_LIBEV_GIT_REPOSITORY = $(CACHEROOT)/shadowsocks-libev
 SHADOWSOCKS_LIBEV_SOURCE := $(shell mktemp -u -d --tmpdir shadowsocks-libev.XXXXXXXXXX)
 SHADOWSOCKS_LIBEV_PATCHES := $(wildcard $(PWD)/patch/*.patch)
@@ -44,7 +44,8 @@ CPPFLAGS="$(CPPFLAGS) $(LIBUDNS_CPPFLAGS) $(LIBEV_CPPFLAGS)" ./configure \
 --disable-ssp --disable-dependency-tracking --disable-documentation --disable-shared --enable-static \
 --with-pcre=$(PCRE_INSTALL) --with-sodium=$(SODIUM_INSTALL) \
 --with-$(CRYPTO_LIBRARY)="$(LIBCRYPTO_INSTALL)" && \
-$(MKFLAGS) make -j$(NPROCS) && make install \
+$(MKFLAGS) make -j$(NPROCS) && make install && \
+file $(SHADOWSOCKS_LIBEV_INSTALL)/bin/* | grep ELF | sed 's/:.*//' | xargs $(STRIP) \
 )
 	(cd "$(TMPDIR)" && rm -rf shadowsocks-libev.*)
 

@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-SODIUM_VERSION := 1.0.11
+SODIUM_VERSION := 1.0.13
 SODIUM_TARBALL = $(CACHEROOT)/libsodium-$(SODIUM_VERSION).tar.gz
 SODIUM_INSTALL = $(CACHEROOT)/libsodium-$(SODIUM_VERSION)-$(TOOLCHAIN)
 SODIUM_SOURCE_DIR := $(shell mktemp -d -u --tmpdir libsodium.XXXXXXXXX)
@@ -12,7 +12,7 @@ $(SODIUM_INSTALL): $(SODIUM_TARBALL) $(TOOLCHAIN_INSTALL)
 	mkdir -p "$(SODIUM_SOURCE_DIR)"
 	tar zxf "$(SODIUM_TARBALL)" -C "$(SODIUM_SOURCE_DIR)" --strip-components 1
 	(\
-cd "$(SODIUM_SOURCE_DIR)" && \
+cd "$(SODIUM_SOURCE_DIR)" && ./autogen.sh && \
 $(MKFLAGS) $(MKENV) ./configure --host=$(HOST_COMPILER) --disable-shared --enable-static --prefix="$(SODIUM_INSTALL)" && \
 $(MKFLAGS) make -j$(NPROCS) && make install\
 )
