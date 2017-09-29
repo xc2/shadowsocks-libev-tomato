@@ -19,6 +19,6 @@ sed -i 's/^ac_run() {/ac_run() {\nreturn 0/' configure.lib && \
 $(MKFLAGS) $(MKENV) ./configure --enable-ipv6 && \
 $(MKFLAGS) make -j$(NPROCS) static && mkdir -p install.d/lib install.d/include && \
 cp -f libudns* install.d/lib/ && cp -f udns.h install.d/include/ && \
-mkdir -p "$(UDNS_INSTALL)" && mv -T install.d "$(UDNS_INSTALL)" \
+mkdir -p "$(UDNS_INSTALL)" && rsync -av install.d/ "$(UDNS_INSTALL)/" \
 )
 	(cd "$(TMPDIR)" && rm -rf libudns.*)
