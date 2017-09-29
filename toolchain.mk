@@ -1,6 +1,6 @@
 # -*- mode: makefile -*-
 TOOLCHAIN := mipsel
-MERLIN_VERSION := 380.62_1
+MERLIN_VERSION := 380.68_2
 MERLIN_TARBALL = $(CACHEROOT)/merlin-$(MERLIN_VERSION).tar.gz
 
 $(MERLIN_TARBALL):
