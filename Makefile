@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-CACHEROOT := $(HOME)/CACHE
+CACHEROOT := $(PWD)/cache
 TMPDIR := $(shell dirname $(shell mktemp -u))
 NPROCS := $(shell nproc)
 

@@ -1,14 +1,11 @@
-directory '/home/vagrant/CACHE' do
-  owner 'vagrant'
-  group 'vagrant'
-  mode 0755
-  action :create
+
+apt_update 'all' do
+  action :nothing
 end
 
-execute 'dpkg --add-architecture i386'
-
-apt_update 'update' do
-  action :periodic
+execute 'dpkg --add-architecture i386' do
+  not_if 'dpkg --print-foreign-architectures | grep i386'
+  notifies :update, 'apt_update[all]', :immediately
 end
 
 package %w(
