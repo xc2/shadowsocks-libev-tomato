@@ -44,8 +44,7 @@ CPPFLAGS="$(CPPFLAGS) $(LIBEV_CPPFLAGS) $(CARES_CPPFLAGS)" ./configure \
 --disable-ssp --disable-dependency-tracking --disable-documentation --disable-shared --enable-static \
 --with-pcre=$(PCRE_INSTALL) --with-sodium=$(SODIUM_INSTALL) \
 --with-$(CRYPTO_LIBRARY)="$(LIBCRYPTO_INSTALL)" && \
-$(MKFLAGS) make -j$(NPROCS) && make install && \
-file $(SHADOWSOCKS_LIBEV_INSTALL)/bin/* | grep ELF | sed 's/:.*//' | xargs $(STRIP) \
+$(MKFLAGS) make -j$(NPROCS) && make install-strip \
 )
 	(cd "$(TMPDIR)" && rm -rf shadowsocks-libev.*)
 
