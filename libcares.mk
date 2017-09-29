@@ -15,7 +15,7 @@ $(CARES_INSTALL): $(CARES_TARBALL) $(TOOLCHAIN_INSTALL)
 	tar zxf "$(CARES_TARBALL)" -C "$(CARES_SOURCE_DIR)" --strip-components 1
 	(\
 cd "$(CARES_SOURCE_DIR)" && \
-$(MKFLAGS) $(MKENV) ./configure --host="$(HOST_COMPILER)" --prefix="$(CARES_INSTALL)" --disable-dependency-tracking && \
+$(MKFLAGS) $(MKENV) ./configure --host="$(HOST_COMPILER)" --prefix="$(CARES_INSTALL)" --disable-dependency-tracking --enable-static --disable-shared && \
 $(MKFLAGS) make -j$(NPROCS) && make install\
 )
 	(cd "$(TMPDIR)" && rm -rf cares.*)
