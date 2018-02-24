@@ -10,7 +10,7 @@ include libsodium.mk
 include libcares.mk
 include libev.mk
 
-SHADOWSOCKS_LIBEV_VERSION := 3.1.0
+SHADOWSOCKS_LIBEV_VERSION := 3.1.3
 SHADOWSOCKS_LIBEV_GIT_REPOSITORY = $(CACHEROOT)/shadowsocks-libev
 SHADOWSOCKS_LIBEV_SOURCE := $(shell mktemp -u -d --tmpdir shadowsocks-libev.XXXXXXXXXX)
 SHADOWSOCKS_LIBEV_PATCHES := $(wildcard $(PWD)/patch/*.patch)
