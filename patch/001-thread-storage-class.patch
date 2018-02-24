@@ -7,7 +7,7 @@ index d7bbffa..eedf14b 100644
 
  #if !(defined(__APPLE__) && defined(__MACH__))
 -#if CORK_CONFIG_GCC_VERSION >= 30300
-+#if CORK_CONFIG_GCC_VERSION >= 30300 && !(defined(__MIPSEL__))
++#if CORK_CONFIG_GCC_VERSION >= 30300 && !(defined(__MIPSEL__)) && !(defined(__ARMEL__))
  #define CORK_CONFIG_HAVE_THREAD_STORAGE_CLASS  1
  #else
  #define CORK_CONFIG_HAVE_THREAD_STORAGE_CLASS  0
