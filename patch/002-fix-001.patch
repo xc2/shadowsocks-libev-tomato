@@ -1,0 +1,13 @@
+diff --git a/libcork/include/libcork/config/gcc.h b/libcork/include/libcork/config/gcc.h
+index d7bbffa..eedf14b 100644
+--- a/libcork/include/libcork/config/gcc.h
++++ b/libcork/include/libcork/config/gcc.h
+@@ -78,7 +78,7 @@
+  * OS X. */
+
+ #if !(defined(__APPLE__) && defined(__MACH__))
+-#if CORK_CONFIG_GCC_VERSION >= 30300 && !(defined(__MIPSEL__))
++#if CORK_CONFIG_GCC_VERSION >= 30300 && !(defined(__UCLIBC__))
+ #define CORK_CONFIG_HAVE_THREAD_STORAGE_CLASS  1
+ #else
+ #define CORK_CONFIG_HAVE_THREAD_STORAGE_CLASS  0
