@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-MBEDTLS_VERSION := 2.6.0-gpl
+MBEDTLS_VERSION := 2.14.0-gpl
 MBEDTLS_TARBALL = $(CACHEROOT)/mbedtls-$(MBEDTLS_VERSION).tar.gz
 MBEDTLS_INSTALL = $(CACHEROOT)/mbedtls-$(MBEDTLS_VERSION)-$(TOOLCHAIN)
 MBEDTLS_SOURCE_DIR := $(shell mktemp -d -u --tmpdir mbedtls.XXXXXXXXXX)

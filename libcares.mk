@@ -1,5 +1,5 @@
 # -*- mode: makefile -*-
-CARES_VERSION := 1.12.0
+CARES_VERSION := 1.15.0
 CARES_TARBALL = $(CACHEROOT)/cares-$(CARES_VERSION).tar.gz
 CARES_INSTALL = $(CACHEROOT)/cares-$(CARES_VERSION)-$(TOOLCHAIN)
 CARES_SOURCE_DIR := $(shell mktemp -d -u --tmpdir cares.XXXXXXXXXX)
